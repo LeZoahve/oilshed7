@@ -4,6 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerState.h"
+
+#include "GrimoiresBook.h"
+#include "GrimoiresHand.h"
+
 #include "GrimoiresPlayerState.generated.h"
 
 
@@ -13,7 +17,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHPGained, int, _HPGain);
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class OILSHED7_API AGrimoiresPlayerState : public APlayerState
 {
 	GENERATED_BODY()
@@ -51,6 +55,12 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default", meta = (AllowPrivateAccess = "true"))
 	int Inspiration = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default", meta = (AllowPrivateAccess = "true"))
+	UGrimoiresBook* Book = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default", meta = (AllowPrivateAccess = "true"))
+	UGrimoiresHand* Hand = nullptr;
 
 
 	UPROPERTY(BlueprintAssignable, VisibleAnywhere)

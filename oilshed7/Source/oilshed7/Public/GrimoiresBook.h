@@ -3,26 +3,22 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include "UObject/NoExportTypes.h"
+
+#include "GrimoiresPage.h"
+
 #include "GrimoiresBook.generated.h"
 
-
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class OILSHED7_API UGrimoiresBook : public UActorComponent
+UCLASS(Blueprintable, BlueprintType)
+class OILSHED7_API UGrimoiresBook : public UObject
 {
 	GENERATED_BODY()
-
+	
 public:	
-	// Sets default values for this component's properties
+	// Sets default values for this actor's properties
 	UGrimoiresBook();
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-		
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default", meta = (AllowPrivateAccess = "true"))
+	TArray<UGrimoiresPage*> Pages;
 };
