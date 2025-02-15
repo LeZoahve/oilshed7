@@ -17,4 +17,9 @@ class OILSHED7_API UGrimoiresPage : public UObject
 public:	
 	// Sets default values for this actor's properties
 	UGrimoiresPage();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnTurn();
+
+private:
 };

@@ -18,7 +18,35 @@ public:
 	// Sets default values for this actor's properties
 	UGrimoiresBook();
 
+	UFUNCTION(BlueprintCallable)
+	UGrimoiresPage* GetCurrentPage();
+
+	UFUNCTION(BlueprintCallable)
+	UGrimoiresPage* GetLastReadPage();
+
+	UFUNCTION(BlueprintCallable)
+	void TurnPage();
+
+	UFUNCTION(BlueprintCallable)
+	void Reset();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnTurnPage();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnReset();
+
 private:
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default", meta = (AllowPrivateAccess = "true"))
 	TArray<UGrimoiresPage*> Pages;
+
+
+	/////////////////////////////////
+	//Game Logic => NO UPROPERTY HERE
+	/////////////////////////////////
+
+
+	TArray<UGrimoiresPage*> ReadPages;
+	TArray<UGrimoiresPage*> ToReadPages;
 };
