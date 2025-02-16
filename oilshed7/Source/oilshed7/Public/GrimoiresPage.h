@@ -21,5 +21,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnTurn();
 
+
+	UWorld* GetWorld() const override;
+
 private:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Default", meta = (AllowPrivateAccess = "true"))
+	int Cost = 0;
 };
